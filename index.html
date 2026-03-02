@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spotify - Web Player: Music for everyone</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="utility.css">
+</head>
+
+<body>
+    <header class="topbar">
+        <div class="leftside">
+            <ul>
+                <li><img class="invert" src="logo.svg" alt="logo"></li>
+                <li><img class="invert" src="home.svg" alt=""></li>
+                <!-- <li><img class="invert" src="search.svg" alt=""></li> -->
+                <!-- hme icon chhota krna hai baad mai -->
+            </ul>
+            <div class="">
+                <form class="flex" role="search">
+                    <input class="form-control me-2" id="searchbar" type="search" placeholder="Search"
+                        aria-label="Search" />
+                    <button class="searchbtn" type="submit"><img class="invert" width="30px" src="search.svg"
+                            alt=""></button>
+                </form>
+            </div>
+        </div>
+        <div class="rightside">
+            <div class="link1">
+                <ul>
+                    <li><a class="popup" href="#">Premium</a></li>
+                    <li><a class="popup" href="#">Support</a></li>
+                    <li><a class="popup" href="#">Download</a></li>
+                    <!-- yha pe link nhi bn rha hai -->
+                </ul>
+            </div>
+            <svg class="verticle" width="15" height="26" viewBox="0 0 1 16" xmlns="http://www.w3.org/2000/svg">
+                <rect width="1" height="16" fill="white" />
+            </svg>
+            <div class="link2">
+                <ul>
+                    <li class="install-app">
+                        <svg class="popup" width="20" height="20" viewBox="0 0 26 26"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="13" cy="13" r="11" stroke="white" stroke-width="2" fill="none" />
+                            <path d="M13 6V14M9 11L13 15L17 11" stroke="white" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" fill="none" />
+                            <line x1="9" y1="18" x2="17" y2="18" stroke="white" stroke-width="2"
+                                stroke-linecap="round" />
+                        </svg>
+                        <a class="popup" href="#">Install App</a>
+                    </li>
+
+                    <li><button class="popup" id="btn1">Sign Up</button></li>
+                    <li><button class="popup" id="btn2">Log in</button></li>
+                </ul>
+            </div>
+        </div>
+    </header>
+    <div class="container bg-black flex">
+        <div class="left"> 
+            <div class="library bg-grey rounded m-1 p-1">
+     <div class="close">
+                    <img src="close.svg" alt="">
+                </div>
+                <div class="heading">
+                    <img class="invert" src="playlist.svg" alt="">
+                    <h2>
+                        Your Library
+                    </h2>
+                </div>
+                <!-- <span> Your library</span> -->
+                <div class="songList">
+                    <ul>
+
+                    </ul>
+                </div>
+                <div class="footer">
+                    <div><a href="https://www.spotify.com/in-en/legal/">Legal</a></div>
+                    <div> <a href="https://www.spotify.com/in-en/safetyandprivacy/">Safety & Privacy Center</a></div>
+                    <div> <a href="https://www.spotify.com/in-en/legal/privacy-policy/">Privacy Policy</a></div>
+                    <div> <a href="https://www.spotify.com/in-en/legal/cookies-policy/">Cookies</a></div>
+                    <div> <a href="https://www.spotify.com/in-en/legal/privacy-policy/#s3">About Ads</a></div>
+                    <div><a href="https://www.spotify.com/in-en/accessibility/">Accessibility</a></div>
+                </div>
+            </div>
+        </div>
+        <div class="right bg-grey rounded m-1 p-1">
+            <div class="playlist">
+                <img width="35px" class="hemu hamburger" src="hamburger.svg" alt="">
+                <div class="head2">
+
+                    <h2><a>Trending song</a></h2>
+                    <a class="showall" href="#">Show all</a>
+                </div>
+                <div class="cardcontainer">
+                    <div class=" card">
+                        <div class="play">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path d="M5 20V4L19 12L5 20Z" stroke="#141B34" fill="#000" stroke-width="1.5"
+                                    stroke-linejoin="round" />
+                            </svg>
+                        </div>
+                        <img src="https://i.scdn.co/image/ab67616d00001e025be30e0d058181d80d470511" alt="">
+                        <span class="">Ghar Kab Aaoge (From "BORDER 2")</span>
+                        <span class="e-91000-text encore-text-body-small aYt6brelfaS_o2cqU7ow" data-encore-id="text">
+                            <a draggable="true" dir="auto" href="/artist/71hjb5G92mGoKRSAW3Cj00">Anu Malik,</a>
+                            <a draggable="true" dir="auto" href="/artist/09UmIX92EUH9hAK4bxvHx6">Mithoon, </a>
+                            <a draggable="true" dir="auto" href="/artist/1dVygo6tRFXC8CSWURQJq2">Sonu Nigam, </a>
+                            <a draggable="true" dir="auto" href="/artist/4YRxDV8wJFPHPTeXepOstw">Arijit
+                                Singh</a></span>
+                    </div>
+                     <div class=" card">
+                        <div class="play">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path d="M5 20V4L19 12L5 20Z" stroke="#141B34" fill="#000" stroke-width="1.5"
+                                    stroke-linejoin="round" />
+                            </svg>
+                        </div>
+                        <img src="https://i.scdn.co/image/ab67616d00001e025be30e0d058181d80d470511" alt="">
+                        <span class="">Ghar Kab Aaoge (From "BORDER 2")</span>
+                        <span class="e-91000-text encore-text-body-small aYt6brelfaS_o2cqU7ow" data-encore-id="text">
+                            <a draggable="true" dir="auto" href="/artist/71hjb5G92mGoKRSAW3Cj00">Anu Malik,</a>
+                            <a draggable="true" dir="auto" href="/artist/09UmIX92EUH9hAK4bxvHx6">Mithoon, </a>
+                            <a draggable="true" dir="auto" href="/artist/1dVygo6tRFXC8CSWURQJq2">Sonu Nigam, </a>
+                            <a draggable="true" dir="auto" href="/artist/4YRxDV8wJFPHPTeXepOstw">Arijit
+                                Singh</a></span>
+                    </div>
+                </div>
+            </div>
+            <div class="artist layer2">
+                <div class="head2">
+                    <h2><a>Popular artist</a></h2>
+                    <a class="showall" href="#">Show all</a>
+                </div>
+                <div class="cardcontainer">
+                    <div class=" card2 ">
+                        <div class="play2">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path d="M5 20V4L19 12L5 20Z" stroke="#141B34" fill="#000" stroke-width="1.5"
+                                    stroke-linejoin="round" />
+                            </svg>
+                        </div>
+                        <img src="https://i.scdn.co/image/ab67616100005174cb6926f44f620555ba444fca" alt="">
+                        <span><a href="https://open.spotify.com/artist/1wRPtKGflJrBx9BmLsSwlU"><a>Pritam</a></span>
+                        <p>Artist</p>
+                    </div>
+
+                </div>
+            </div>
+            <div class="playbar">
+                <div class="seekbar">
+                    <div class="circle">
+
+                    </div>
+                </div>
+                <div class="songtitle">
+                    <div class="songinfo"></div>
+
+
+                    <div class="songbuttons">
+                        <img id="previous" src="prevsong.svg" alt=""><img id="play" src="play.svg" alt=""><img id="next"
+                            src="nextsong.svg" alt="">
+                    </div>
+                    <div class="songtime"></div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <div class="bottom">
+        <div class="para">
+            <a class="pre" href="\">Preview of spotify</a>
+            <a class="sign" href="\">Sign up to get unlimited songs and podcasts with ocasional ads. No credit card
+                needed.</a>
+        </div>
+        <button>Singn Up free</button>
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>
