@@ -1,4 +1,4 @@
-alert("For better experience open on Desktop");
+// alert("For better experience open on Desktop");
 console.log("here is my website of spotify");
 let songs;
 function secondsToMinutesSeconds(seconds) {
@@ -15,7 +15,7 @@ function secondsToMinutesSeconds(seconds) {
 }
 let currentSong = new Audio();
 async function getSongs() {
-    let a = await fetch("http://127.0.0.1:3000/songs/")
+    let a = await fetch("http://127.0.0.1:3002/songs/")
     let response = await a.text();
     let div = document.createElement("div")
     div.innerHTML = response;
