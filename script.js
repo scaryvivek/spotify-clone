@@ -1,9 +1,10 @@
+alert("For better experience open on Desktop");
 console.log("here is my website of spotify");
+let songs;
 function secondsToMinutesSeconds(seconds) {
     if (isNaN(seconds) || seconds < 0) {
         return "00:00";
     }
-
     const minutes = Math.floor(seconds / 60);
     const remainingSeconds = Math.floor(seconds % 60);
 
@@ -12,13 +13,10 @@ function secondsToMinutesSeconds(seconds) {
 
     return `${formattedMinutes}:${formattedSeconds}`;
 }
-
 let currentSong = new Audio();
-
 async function getSongs() {
-    let a = await fetch("https://spotify-clone-lac-psi.vercel.app/songs/")
+    let a = await fetch("http://127.0.0.1:3000/songs/")
     let response = await a.text();
-    console.log(response)
     let div = document.createElement("div")
     div.innerHTML = response;
     let as = div.getElementsByTagName("a")
@@ -31,20 +29,18 @@ async function getSongs() {
     }
     return songs
 }
-const playMusic = (track,pause=false) => {
+const playMusic = (track, pause = false) => {
     currentSong.src = "/songs/" + track
-    if(!pause){
-    currentSong.play()
-    play.src = "pause.svg"  
+    if (!pause) {
+        currentSong.play()
+        play.src = "pause.svg"
     }
     document.querySelector(".songinfo").innerHTML = track
     document.querySelector(".songtime").innerHTML = "00:00 / 00:00"
 }
 async function main() {
-
-    let songs = await getSongs();
+    songs = await getSongs();
     playMusic(songs[0], true)
-
     let songUl = document.querySelector(".songList").getElementsByTagName("ul")[0]
     for (const song of songs) {
         songUl.innerHTML = songUl.innerHTML + `<li><img class="invert" src="music.svg" alt="">
@@ -59,11 +55,9 @@ async function main() {
     }
     Array.from(document.querySelector(".songList").getElementsByTagName("li")).forEach(e => {
         e.addEventListener("click", element => {
-            console.log(e.querySelector(".info").firstElementChild.innerHTML)
             playMusic(e.querySelector(".info").firstElementChild.innerHTML)
         })
     });
-
     play.addEventListener("click", () => {
         if (currentSong.paused) {
             currentSong.play()
@@ -73,26 +67,43 @@ async function main() {
             currentSong.pause()
             play.src = "play.svg"
         }
-
     })
     currentSong.addEventListener("timeupdate", () => {
-        console.log(currentSong.currentTime, currentSong.duration)
-        document.querySelector(".songtime").innerHTML = `${secondsToMinutesSeconds(currentSong.currentTime)}/
+        document.querySelector(".songtime").innerHTML = `${secondsToMinutesSeconds(currentSong.currentTime)} / 
         ${secondsToMinutesSeconds(currentSong.duration)}`
-        document.querySelector(".circle").style.left = (currentSong.currentTime/currentSong.duration
-        )*100 + "%";
+        document.querySelector(".circle").style.left = (currentSong.currentTime / currentSong.duration
+        ) * 100 + "%";
     })
-    document.querySelector(".seekbar").addEventListener("click", e=>{
-        let percent = (e.offsetX/e.target.getBoundingClientRect().width)*100;
-     document.querySelector(".circle").style.left = percent + "%";
-     currentSong.currentTime = ((currentSong.duration)*percent)/100
+    document.querySelector(".seekbar").addEventListener("click", e => {
+        let percent = (e.offsetX / e.target.getBoundingClientRect().width) * 100;
+        document.querySelector(".circle").style.left = percent + "%";
+        currentSong.currentTime = ((currentSong.duration) * percent) / 100
     })
 
-    document.querySelector(".hamburger").addEventListener("click",()=>{
+    document.querySelector(".hamburger").addEventListener("click", () => {
         document.querySelector(".left").style.left = "0"
     })
-       document.querySelector(".close").addEventListener("click",()=>{
+    document.querySelector(".close").addEventListener("click", () => {
         document.querySelector(".left").style.left = "-120%"
+    })
+    previous.addEventListener("click", () => {
+        const currentFile = decodeURIComponent(currentSong.src.split("/").pop());
+        const index = songs.indexOf(currentFile);
+
+        if (index > 0) {
+            playMusic(songs[index - 1]);
+        }
+    });
+    next.addEventListener("click", () => {
+        const currentFile = decodeURIComponent(currentSong.src.split("/").pop());
+        const index = songs.indexOf(currentFile);
+
+        if (index !== -1 && index < songs.length - 1) {
+            playMusic(songs[index + 1]);
+        }
+    });
+    document.querySelector(".range").getElementsByTagName("input")[0].addEventListener("change",(e)=>{
+        currentSong.volume = parseInt(e.target.value)/100
     })
 }
 main()
